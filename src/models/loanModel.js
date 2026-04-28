@@ -43,7 +43,7 @@ export const LoanModel = {
     return result.rows;
   },
 
-  // FUNGSI BARU: Mendapatkan Top 3 Peminjam
+  // FUNGSI YANG DIUBAH: Mendapatkan Top 3 Peminjam dengan Nested JSON
   async getTopBorrowers() {
     const query = `
       WITH MemberLoanCounts AS (
@@ -59,10 +59,14 @@ export const LoanModel = {
           GROUP BY l.member_id, b.title
       )
       SELECT 
-          m.full_name AS "Data Anggota",
-          mlc.total_loans::INTEGER AS "Total Pinjaman",
-          rb.title AS "Buku Favorit",
-          mlc.last_loan_date AS "Pinjaman Terakhir"
+          m.id AS member_id,
+          m.full_name,
+          m.email,
+          m.member_type,
+          mlc.total_loans::INTEGER,
+          mlc.last_loan_date,
+          rb.title AS favorite_book_title,
+          rb.borrow_count::INTEGER AS times_borrowed
       FROM MemberLoanCounts mlc
       JOIN members m ON mlc.member_id = m.id
       JOIN RankedBooks rb ON mlc.member_id = rb.member_id AND rb.rn = 1
@@ -70,6 +74,19 @@ export const LoanModel = {
       LIMIT 3;
     `;
     const result = await pool.query(query);
-    return result.rows;
+    
+    // Mapping raw data dari database ke format JSON yang diinginkan (Nested Object)
+    return result.rows.map(row => ({
+      member_id: row.member_id,
+      full_name: row.full_name,
+      email: row.email,
+      member_type: row.member_type,
+      total_loans: row.total_loans,
+      last_loan_date: row.last_loan_date,
+      favorite_book: {
+        title: row.favorite_book_title,
+        times_borrowed: row.times_borrowed
+      }
+    }));
   }
 };
