@@ -1,3 +1,10 @@
+# Kelompok 42
+## Anggota:
+- MUHAMMAD AZKA WIJASENA (21120123140125)
+- RAFAEL ARDIANSYAH (21120123120007)
+- JIBRAN ANALTA PUTRA (21120123140170)
+- ILHAM IBNU FAIZ (21120123140170)
+
 # Smart Library API
 
 Aplikasi RESTful API untuk Sistem Manajemen Perpustakaan Pintar (Smart Library). API ini melayani pendataan buku, penulis, kategori, anggota perpustakaan, hingga transaksi peminjaman buku.
@@ -140,5 +147,15 @@ http://localhost:3000
   }
   ```
 *(Catatan: `book_id` dan `member_id` wajib menggunakan ID yang sudah ada / dibuat sebelumnya pada entitas Buku dan Anggota)*
+
+---
+
+### 7. Top Borrowers (Peminjam Terbanyak)
+
+#### Ambil Semua Data Peminjaman
+- **Kegunaan:** Mendapatkan Top 3 peminjam terbanyak dengan buku favoritnya.
+- **Method:** `GET`
+- **URL:** `/api/loans/top-borrowers`
+- **Body Request:** *None*
 
 ---
