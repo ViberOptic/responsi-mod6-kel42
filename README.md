@@ -152,8 +152,8 @@ http://localhost:3000
 
 ### 7. Top Borrowers (Peminjam Terbanyak)
 
-#### Ambil Semua Data Peminjaman
-- **Kegunaan:** Mendapatkan Top 3 peminjam terbanyak dengan buku favoritnya.
+#### Ambil Top 3 Peminjam
+- **Kegunaan:** Menampilkan top 3 anggota perpustakaan yang paling aktif meminjam buku, lengkap dengan informasi total transaksi, judul buku favorit, dan tanggal peminjaman terakhir mereka.
 - **Method:** `GET`
 - **URL:** `/api/loans/top-borrowers`
 - **Body Request:** *None*
