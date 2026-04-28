@@ -1,0 +1,31 @@
+{
+  "name": "responsi-mod6-kel42",
+  "version": "1.0.0",
+  "description": "Aplikasi RESTful API untuk Sistem Manajemen Perpustakaan Pintar (Smart Library). API ini melayani pendataan buku, penulis, kategori, anggota perpustakaan, hingga transaksi peminjaman buku.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celllzzz/smart-library-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Celllzzz/smart-library-api/issues"
+  },
+  "homepage": "https://github.com/Celllzzz/smart-library-api#readme"
+}
